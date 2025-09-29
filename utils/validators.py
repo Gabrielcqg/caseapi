@@ -11,8 +11,9 @@ def validar_atividade(nova_atividade):
     # Validacao da funcional
     if not nova_atividade["funcional"].isdigit():
         return False, "O campo 'funcional' deve conter apenas números."
-    if len(nova_atividade["funcional"]) < 6:
-        return False, "O campo 'funcional' deve ter pelo menos 6 dígitos."
+
+    if len(nova_atividade["funcional"]) != 6:
+        return False, "O campo 'funcional' deve ter exatamente 6 dígitos."
 
     # Validacao da data
     try:

@@ -4,42 +4,47 @@ from utils.validators import validar_atividade
 atividades = []
 
 def registrar_atividade_service(nova_atividade):
-    # Caso seja uma lista de atividades
-    if isinstance(nova_atividade, list):
-        atividades_registradas = []
-        for atividade in nova_atividade:
-            if not isinstance(atividade, dict):
-                return jsonify({"erro": "Cada item da lista deve ser um objeto JSON."}), 400
+    try:
+        if isinstance(nova_atividade, list):
+            atividades_registradas = []
+            for atividade in nova_atividade:
+                if not isinstance(atividade, dict):
+                    return jsonify({"erro": "Cada item da lista deve ser um objeto JSON."}), 400
 
-            validar,erro = validar_atividade(atividade)
-            if erro:
+                valido,erro = validar_atividade(atividade)
+                if not valido:
+                    return jsonify({"erro": erro}), 400
+
+                atividades.append(atividade)
+                atividades_registradas.append(atividade)
+
+            return jsonify({
+                "mensagem": "Atividades registradas com sucesso!",
+                "atividades": atividades_registradas
+            }), 201
+
+        elif isinstance(nova_atividade, dict):
+            valido,erro = validar_atividade(nova_atividade)
+            if not valido:
                 return jsonify({"erro": erro}), 400
 
-            atividades.append(atividade)
-            atividades_registradas.append(atividade)
+            atividades.append(nova_atividade)
+            return jsonify({
+                "mensagem": "Atividade registrada com sucesso!",
+                "atividade": nova_atividade
+            }), 201
 
+        else:
+            return jsonify({
+                "erro": "Formato inválido. Envie um objeto JSON ou lista de objetos JSON."
+            }), 400
+    
+    except Exception as e:
         return jsonify({
-            "mensagem": "Atividades registradas com sucesso!",
-            "atividades": atividades_registradas
-        }), 201
-
-    # Caso seja um único dict
-    elif isinstance(nova_atividade, dict):
-        validr,erro = validar_atividade(nova_atividade)
-        if erro:
-            return jsonify({"erro": erro}), 400
-
-        atividades.append(nova_atividade)
-        return jsonify({
-            "mensagem": "Atividade registrada com sucesso!",
-            "atividade": nova_atividade
-        }), 201
-
-    # Caso não seja nem lista nem dict
-    else:
-        return jsonify({
-            "erro": "Formato inválido. Envie um objeto JSON ou lista de objetos JSON."
+            "erro": "Erro ao processar a requisição.",
+            "detalhes": str(e)
         }), 400
+
     
 def listar_atividades_service():
     return jsonify(atividades), 200
