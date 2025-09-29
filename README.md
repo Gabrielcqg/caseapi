@@ -8,10 +8,17 @@ O projeto foi desenvolvido em **Python + Flask**, com foco em boas práticas: se
 
 ### 1. Clonar o repositório
 
+Cria uma Pasta
+mkdir nome_da_pasta
+
+Acesse essa pasta
+
+cd nome_da_pasta
+
 (bash)
 git clone https://github.com/Gabrielcqg/caseapi
 
-cd atividade_api
+cd caseAPI
 
 Criar ambiente virtual:
 python -m venv venv
