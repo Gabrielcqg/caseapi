@@ -100,6 +100,7 @@ Resposta de sucesso:
     "codigoAtividade": "RUN",
 
     "descricaoAtividade": "Corrida de 5km"
+
   }
 
 }
@@ -111,8 +112,8 @@ POST /atividades
 Exemplo de requisição:
 
 [
-
   {
+
     "funcional": "111111",
 
     "dataHora": "2025-09-25T08:00:00",
@@ -122,7 +123,6 @@ Exemplo de requisição:
     "descricaoAtividade": "Pedalada de 20km"
 
   },
-
   {
 
     "funcional": "222222",
@@ -134,7 +134,6 @@ Exemplo de requisição:
     "descricaoAtividade": "Natação 1km"
 
   }
-
 ]
 
 3. Listar todas as atividades
@@ -153,6 +152,7 @@ Resposta:
     "codigoAtividade": "RUN",
 
     "descricaoAtividade": "Corrida de 5km"
+
   }
 ]
 
