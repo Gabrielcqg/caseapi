@@ -9,7 +9,7 @@ O projeto foi desenvolvido em **Python + Flask**, com foco em boas práticas: se
 ### 1. Clonar o repositório
 
 (bash)
-git clone https://github.com/SEU_USUARIO/atividade_api.git
+git clone https://github.com/Gabrielcqg/caseapi
 
 cd atividade_api
 
