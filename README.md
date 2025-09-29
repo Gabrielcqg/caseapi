@@ -20,8 +20,12 @@ git clone https://github.com/Gabrielcqg/caseapi
 
 cd caseAPI
 
+Se nao tiver a venv:
+
 Criar ambiente virtual:
 python -m venv venv
+
+Se tiver a venv, precisa ativa-la:
 
 Linux / Mac :
 source venv/bin/activate
