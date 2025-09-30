@@ -51,6 +51,10 @@ Estrutura de dados:
 
 atividade_api/
 
+│── data/
+
+│   └── atividades.json
+
 │── app.py
 
 │── routes/
@@ -69,6 +73,8 @@ atividade_api/
 
 │── README.md
 
+atividades.json → "Banco de Dados" na memoria.
+
 app.py → inicialização da aplicação Flask.
 
 routes/ → definição das rotas/endpoints.
@@ -76,6 +82,8 @@ routes/ → definição das rotas/endpoints.
 services/ → regras de negócio e manipulação dos dados.
 
 utils/ → utilitários e validações.
+
+
 
 **Endpoints disponíveis**
 1. Registrar nova atividade
